@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+			<title>Test One</title>
+		<link rel="stylesheet" href="css/style.css" />
+		<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+	</head>
+	<body>
+		<header>
+			<div class="Hleft">
+				<div class="icon" id="icon">
+					<a href="#" class="icon_a">
+					<div class="iconIn" id="iconIn" @mouseover="iconIn = false, iconOut = true" @mouseleave="iconIn = true, iconOut = false">
+						<transition name="ps">
+							<div class="ps" id="ps" v-if="iconIn">
+								<p class="Plogo">КУДА</p>
+							</div>
+						</transition>
+						<transition name="vs">
+							<div class="vs" id="vs" v-if="iconIn">
+								<p class="Plogo">СЪЕБАТЬСЯ</p>
+							</div>
+						</transition>
+						<transition name="ps_p">
+							<div class="ps_p" id="ps_p" v-if="iconOut">
+								<p class="Plogo">Стамбул</p>
+							</div>
+						</transition>
+						<transition name="vs_p">
+							<div class="vs_p" id="vs_p" v-if="iconOut">
+								<p class="Plogo">на мансарде</p>
+							</div>
+						</transition>
+					</div></a>
+				</div>
+				<div class="burger">
+					
+					<svg width="60" height="60">
+						<rect x="5" y="10" rx="1" ry="2" width="50" height="5" style="fill:black" />
+						<rect x="5" y="25" rx="1" ry="2" width="50" height="5" style="fill:black" />
+						<rect x="5" y="40" rx="1" ry="2" width="50" height="5" style="fill:black" />
+						Sorry, your browser does not support inline SVG.
+					</svg> 
+				</div>
+				<div class="search">
+					<svg height="60" width="60">
+						<circle cx="35" cy="25" r="10" stroke="black" stroke-width="3" fill="none" />
+						<line x1="29" y1="31" x2="15" y2="45" style="stroke:#000000;stroke-width:4" />
+						Sorry, your browser does not support inline SVG.  
+					</svg> 
+				</div>
+			</div>
+			<div class="Hcenter">
+				<div class="SUButton">
+					<p style="width: 100%;">SIGN UP/LOG IN</p>
+				</div>
+			</div>
+			<div class="Hright">
+				<div class="SPButton">
+					<p style="width: 100%; ">SUPPORT</p>
+				</div>
+			</div>
+		</header>
+		
+		<main>
+			<div class="main_main">
+				<div class="main_card">
+					<div class="main_card_zag">
+						<p>Отметь один пункт</p>
+						<div id="v-model-multiple-checkboxes" >
+							<label class="checkbox style">
+								<input type="checkbox" id="home" value="Ты убит" v-model="checkedNames" />
+								<div class="checkbox__checkmark"></div>
+								<label for="jack">Я домой</label>
+							</label>
+							<br />
+							<label class="checkbox style">
+								<input type="checkbox" id="spas" value="Ты спасен" v-model="checkedNames" />
+								<div class="checkbox__checkmark"></div>
+								<label for="jack">Я в Америку</label>
+							</label>
+							
+							<br />
+							<div id="v-model-multiple-checkboxes" class="demo">
+								<button v-on:click="say (checkedNames)">Greet</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="main_card">
+					<div id="modalin">
+						<button id="show-modal" @click="showModal = true">Show Modal</button>
+					  
+						<teleport to="body">
+						  <!-- use the modal component, pass in the prop -->
+						  <modal :show="showModal" @close="showModal = false">
+							<template #header>
+							  <h3>custom header</h3>
+							</template>
+						  </modal>
+						</teleport>
+					  </div>	
+				</div>
+				<div class="main_card">
+				</div><div class="main_card"></div><div class="main_card"></div><div class="main_card"></div>
+			</div>
+		</main>
+		<footer>
+			
+		</footer>
+		<script src="js/vue.global.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/icon.js"></script>
+	</body>
+</html>
